@@ -45,7 +45,7 @@ server.listen(port, function (request, response) {
     var route = parse_qs(request.url)._escaped_fragment_;
     var url = urlPrefix
       + request.url.slice(1, request.url.indexOf('?'))
-      + '#!' + decodeURIComponent(route);
+      + decodeURIComponent(route);
     renderHtml(url, function(html) {
         response.statusCode = 200;
         response.write(html);
